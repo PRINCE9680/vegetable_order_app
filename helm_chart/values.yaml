@@ -1,0 +1,17 @@
+user:
+  replicas: 2
+  app: vegetable-order
+  name: vegetable-order-app
+  image:
+    repository: prince5678/vegetable-order
+    tag: latest
+  port: 3000
+  type: LoadBalancer
+  URI: "mongodb://{{ .Release.Name }}-mongodb-service:27017/vegetable_order_app"
+mongodb:
+  name: mongodb
+  replicas: 1
+  port: 27017
+  image:
+    repository: mongo
+    tag: latest
